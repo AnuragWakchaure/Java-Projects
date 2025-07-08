@@ -1,6 +1,3 @@
-Sure! Here's an attractive and professional **README.md** file for your **Railway Reservation System** Java project:
-
----
 
 ````markdown
 # 🚆 Railway Reservation System (Java Project)
