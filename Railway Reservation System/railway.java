@@ -1,4 +1,4 @@
-import java.util.*;  
+meimport java.util.*;  
 import java.sql.*;
 import java.io.*;
 import java.text.*;
@@ -21,7 +21,7 @@ class user
 	int check1(int tnum) throws Exception
 	{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 		Statement s=c.createStatement();
 		ResultSet r=s.executeQuery("select * from train where tnum='"+tnum+"' ");
 		if(r.first())	
@@ -198,7 +198,7 @@ class user
 			
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 			Statement s1=c.createStatement();
 			ResultSet r1=s1.executeQuery("select * from chart order by sno desc limit 1");
 			r1.first();		
@@ -239,7 +239,7 @@ class user
 			java.util.Date date=new java.util.Date();
 			java.sql.Timestamp sqt=new java.sql.Timestamp(date.getTime());
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 			Statement s2=c.createStatement();
 			Statement s1=c.createStatement();
 			Statement s3=c.createStatement();
@@ -302,7 +302,7 @@ class user
 		long pnr;
 		String j="cancel";
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");	
+		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");	
 		System.out.print("Enter PNR Number  ");
 		pnr=a.nextLong();
 		Statement stmt=c.createStatement();
@@ -386,7 +386,7 @@ class user
 		System.out.print("To ");
 		String to=a.next();	
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");	
+		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");	
 		System.out.println("***************************************************************************************************************************************************************************************");
 		System.out.println("Train Number   Train Name     Seats          Boarding       Destination    First AC       Second AC      Third AC       Sleeper Coach  Journey date   Departure      Arrival");
 		System.out.println("***************************************************************************************************************************************************************************************");
@@ -492,7 +492,7 @@ class admin
 		System.out.print("Enter Username : ");
 		uname=i.next();
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 		Statement s=c.createStatement();
 		ResultSet rl=s.executeQuery("select uname from user where uname='"+uname+"' ");
 		if(!rl.first())		
@@ -531,7 +531,7 @@ class admin
 		password=i.next();
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");		
+		Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");		
 		Statement s=c.createStatement();
 		ResultSet r=s.executeQuery("select uname,pass from user");
 		r.first();
@@ -560,7 +560,7 @@ class admin
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 			PreparedStatement st=c.prepareStatement("insert into train (tnum,tname,seats,bp,dp,fAC,sAC,tAC,sc,doj,dtime,atime) values(?,?,?,?,?,?,?,?,?,?,?,?)");
 			st.setInt(1,tnum);
 			st.setString(2,tname);
@@ -588,7 +588,7 @@ class admin
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 			java.util.Date date=new java.util.Date();
 			java.sql.Timestamp sqt=new java.sql.Timestamp(date.getTime());
 			PreparedStatement st=c.prepareStatement("insert into user(uname,pass,age,g,timestamp) values(?,?,?,?,?)");
@@ -623,7 +623,7 @@ class admin
 		{
 			int tnum,d;
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");
 			System.out.print("Enter train Number whose date you want to update : ");
 			tnum=i.nextInt();
 			System.out.print("Enter number of days to be incremented : ");
@@ -725,7 +725,7 @@ class admin
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");	
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");	
 					System.out.println("***************************************************************************************************************************************************************************************");
 			System.out.println("Train Number   Train Name     Seats          Boarding       Destination    First AC       Second AC      Third AC       Sleeper Coach  Journey date   Departure      Arrival");
 			System.out.println("***************************************************************************************************************************************************************************************");
@@ -793,7 +793,7 @@ class admin
 			System.out.print("Enter the train number ");
 			int tn=i.nextInt();	
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");	
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");	
 			System.out.println("***************************************************************************************************************************************************************************************");
 			System.out.println("PNR Number          Name                Age                 Gender              Seat Number         Coach               Status              Booking time        Date of travelling");
 			System.out.println("***************************************************************************************************************************************************************************************");
@@ -846,7 +846,7 @@ class admin
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","root","1234");	
+			Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/railway?autoReconnect=true&useSSL=false","username","password");	
 			System.out.println("***************************************************************************************************************************************************************************************");
 			System.out.println("Username                 Age                      Gender                   Booking time");
 			System.out.println("***************************************************************************************************************************************************************************************");		
